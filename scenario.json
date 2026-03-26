@@ -1,0 +1,41 @@
+{
+  "scenario_id": "a2a-durable-lifecycle.demo.v1",
+  "title": "A2A with durable lifecycle - inter-agent task execution",
+  "description": "Task dispatcher sends work to a task executor via AXME. If executor crashes, AXME retries. If executor needs human help, AXME handles the approval gate.",
+
+  "agents": [
+    {
+      "role": "task_executor",
+      "address": "a2a-executor-demo",
+      "display_name": "Task Executor Agent",
+      "delivery_mode": "stream",
+      "create_if_missing": true
+    }
+  ],
+
+  "workflow": {
+    "steps": [
+      {
+        "step_id": "execute_task",
+        "tool_id": "tool.agent.task.v1",
+        "assigned_to": "task_executor",
+        "step_deadline_seconds": 120
+      }
+    ]
+  },
+
+  "intent": {
+    "type": "intent.a2a.task_execution.v1",
+    "payload": {
+      "task_id": "TASK-2026-0042",
+      "task_type": "data_enrichment",
+      "source_agent": "dispatcher-agent",
+      "input_data": {
+        "records": 5000,
+        "enrichment": "geo_lookup"
+      },
+      "priority": "normal"
+    },
+    "max_delivery_attempts": 3
+  }
+}
