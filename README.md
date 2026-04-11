@@ -5,7 +5,7 @@ A2A protocol enables agent communication. AXME adds what's missing - durable lif
 A2A defines how agents talk to each other. But talking is not enough. When Agent B crashes mid-task, who retries? When Agent B needs a human decision, who manages the wait? A2A is a communication protocol - it handles the message. AXME is a lifecycle protocol - it handles everything after the message arrives.
 
 > **Alpha** - Built with [AXME](https://github.com/AxmeAI/axme) (AXP Intent Protocol).
-> [cloud.axme.ai](https://cloud.axme.ai) - [hello@axme.ai](mailto:hello@axme.ai)
+> [cloud.axme.ai](https://cloud.axme.ai) - [contact@axme.ai](mailto:contact@axme.ai)
 
 ---
 
